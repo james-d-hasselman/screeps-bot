@@ -1,4 +1,5 @@
 import * as Spawner from "./spawner";
+import * as Worker from "./worker";
 import { ErrorMapper } from "utils/ErrorMapper";
 
 declare global {
@@ -38,4 +39,7 @@ export const loop = ErrorMapper.wrapLoop(() => {
   }
 
   Spawner.run();
+  Object.values(Game.creeps).forEach(creep => {
+    Worker.run(creep);
+  });
 });
