@@ -1,0 +1,35 @@
+// For format details, see https://containers.dev/implementors/json_reference/.
+{
+  "name": "screeps-bot",
+  // Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:24",
+  "features": {
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+  },
+  "mounts": [
+    "source=claude-code-config-${devcontainerId},target=/home/node/.claude,type=volume"
+  ],
+  "containerEnv": {
+    "CLAUDE_CONFIG_DIR": "/home/node/.claude"
+  },
+  // Set *default* container specific settings.json values on container create.
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "asvetliakov.vscode-neovim"
+      ]
+    }
+  },
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+  // Uncomment the next line to run commands after the container is created - for example installing curl.
+  // "postCreateCommand": "apt-get update && apt-get install -y curl",
+  "postCreateCommand": "sudo chown -R node:node /home/node/.claude && sudo apt-get update && sudo apt-get install -y neovim fish && npm install"
+  // Uncomment when using a ptrace-based debugger like C++, Go, and Rust
+  // "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+  // Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
+  // "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
+  // Uncomment to connect as a non-root user if you've added one. See https://aka.ms/vscode-remote/containers/non-root.
+  // "remoteUser": "vscode"
+}
