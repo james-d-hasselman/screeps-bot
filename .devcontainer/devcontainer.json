@@ -17,7 +17,8 @@
     "vscode": {
       "extensions": [
         "dbaeumer.vscode-eslint",
-        "asvetliakov.vscode-neovim"
+        "asvetliakov.vscode-neovim",
+        "esbenp.prettier-vscode"
       ]
     }
   },

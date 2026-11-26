@@ -1,12 +1,14 @@
 {
     "[javascript]": {
-        "editor.formatOnSave": false
+        "editor.formatOnSave": true
     },
     "[json]": {
         "editor.formatOnSave": true
     },
     "[typescript]": {
-        "editor.formatOnSave": false
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.tabSize": 2,
     },
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "explicit"
@@ -23,6 +25,7 @@
         "node_modules/**": true,
         "typings/**": true
     },
-    "typescript.tsdk": "./node_modules/typescript/lib",
-    "eslint.enable": true
+    "js/ts.tsdk.promptToUseWorkspaceVersion": true,
+    "eslint.enable": true,
+    "js/ts.tsdk.path": "./node_modules/typescript/lib"
 }
