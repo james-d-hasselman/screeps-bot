@@ -1,4 +1,5 @@
 import * as Spawner from "./spawner";
+import * as Stats from "./stats";
 import * as Worker from "./worker";
 import { ErrorMapper } from "utils/ErrorMapper";
 
@@ -42,4 +43,5 @@ export const loop = ErrorMapper.wrapLoop(() => {
   Object.values(Game.creeps).forEach(creep => {
     Worker.run(creep);
   });
+  Stats.run();
 });
