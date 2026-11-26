@@ -1,3 +1,4 @@
+import * as Spawner from "./spawner";
 import { ErrorMapper } from "utils/ErrorMapper";
 
 declare global {
@@ -20,12 +21,11 @@ declare global {
     room: string;
     working: boolean;
   }
-
 }
 // Syntax for adding properties to `global` (ex "global.log")
 declare const global: {
   log: any;
-}
+};
 
 // When compiling TS to JS and bundling with rollup, the line numbers and file names in error messages change
 // This utility uses source maps to get the line numbers and file names of the original, TS source code
@@ -38,4 +38,6 @@ export const loop = ErrorMapper.wrapLoop(() => {
       delete Memory.creeps[name];
     }
   }
+
+  Spawner.run();
 });
